@@ -1,6 +1,10 @@
 # Linux-Process-API-fork-wait-exec-
+Ex02-Linux Process API-fork(), wait(), exec()
 # Ex02-OS-Linux-Process API - fork(), wait(), exec()
-# REG NO : 212225230188
+Operating systems Lab exercise
+
+# Register number : 212225230188
+# Name : Monishwar k
 
 # AIM:
 To write C Program that uses Linux Process API - fork(), wait(), exec()
@@ -18,11 +22,10 @@ Write the C Program using Linux Process API - fork(), wait(), exec()
 ### Step 3:
 
 Test the C Program for the desired output. 
-
 # PROGRAM:
 
 ## C Program to create new process using Linux API system calls fork() and getpid() , getppid() and to print process ID and parent Process ID using Linux API system calls
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -32,25 +35,21 @@ int main() {
 
     if (pid == 0) { 
         printf("I am child, my PID is %d\n", getpid()); 
-       printf("My parent PID is: %d\n", getppid()); 
+        printf("My parent PID is: %d\n", getppid()); 
         sleep(2);  // Keep child alive for verification
     } else { 
         printf("I am parent, my PID is %d\n", getpid()); 
         wait(NULL); 
     }
 }
-
-
 ```
+# OUTPUT
 
-## OUTPUT
-
-<img width="1574" height="999" alt="c4cc7442-b4f6-4e9b-8a05-895bccf35a19" src="https://github.com/user-attachments/assets/d78018c4-3e26-40b4-8b08-6d0c866e7161" />
+<img width="616" height="381" alt="image" src="https://github.com/user-attachments/assets/a00a1783-5ea4-42df-a312-24bae58e7cb0" />
 
 
 ## C Program to execute Linux system commands using Linux API system calls exec() , exit() , wait() family
-```
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -61,9 +60,9 @@ int main() {
     int status;
     
     printf("Running ps with execl\n");
-    if (fork() == 0) {        
-execlp("ps", "ps", "-f", NULL);
-        perror("execlp failed");
+    if (fork() == 0) {
+        execl("ps", "ps", "-f", NULL);
+        perror("execl failed");
         exit(1);
     }
     wait(&status);
@@ -79,11 +78,11 @@ execlp("ps", "ps", "-f", NULL);
 }
 ```
 
-## OUTPUT
+# OUTPUT
 
-
-<img width="1604" height="981" alt="53a4a1d7-c247-4816-9423-467c57405114" src="https://github.com/user-attachments/assets/89aa828d-c6d0-47df-81b1-9e0546661e3f" />
-
+<img width="662" height="486" alt="image" src="https://github.com/user-attachments/assets/2145d166-f11a-4b81-b757-b1efe593eb02" />
 
 # RESULT:
 The programs are executed successfully.
+
+
